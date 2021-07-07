@@ -1,0 +1,492 @@
+@charset "UTF-8";
+/* CSS Document */
+html{scroll-behavior: smooth}
+
+body {
+	font-family:"ヒラギノ丸ゴ Pro W4","ヒラギノ丸ゴ Pro","Hiragino Maru Gothic Pro","ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro","HG丸ｺﾞｼｯｸM-PRO","HGMaruGothicMPRO";
+    font-size: 90%;
+    text-align: center;
+	position: center;
+    margin:  0;
+    padding: 0;
+}
+
+.pc,.ipad{display: none !important;}
+.mobil{display: block !important;}
+
+header {
+    background-position: center;
+    object-position: center top;
+    height: 600px;
+    z-index: 0;
+    position: relative;
+       }
+
+header video{
+            /* object-fit: cover; */
+            opacity: var(--video-opcity);
+            width: 100%;
+            height: auto;
+            /* clip-path: inset(31% 0 28% 0); */
+            z-index: 1;
+            background-color: rgb(255, 255, 255);
+}
+
+header img{   z-index: 30;
+              position:fixed;
+              top: 12px;
+              left: 12px;
+              width: 100px;
+                      }
+
+h1{     
+        /* top: 50%; */
+        position:absolute;
+        
+        left: 50%;
+        -ms-transform: translate(-50%,-50%);
+        -webkit-transform: translate(-50%,-50%);
+        transform: translate(-50%,-50%);
+	    top: 232px;
+        bottom: 591px;
+        font-size: 29px;
+        color: #1a1311;
+        letter-spacing: 0.363em;
+        /* line-height: 1.7586206896551724; */
+	    z-index: 2;
+}
+/* ----------スライドメニュー------------- */
+
+#sidebarMenu {
+    height: 100%;
+    position: fixed;
+    z-index: 20;
+    width:40%;
+    right: 0px;
+    background-color:rgba(0, 0, 0, 0.342);
+    transform: translatex(100%);
+    transition: transform 250ms ease-in-out;
+    margin: 0px;
+    border-radius: 0px 0px 0px 0px;
+    
+
+}
+.sidebarMenuInner li{
+    min-width: 50px;
+    list-style: none;
+      color: rgb(255, 255, 255);
+      text-transform: uppercase;
+      font-weight: bold;
+      padding: 40px;
+      cursor: pointer;
+    }
+
+.sidebarMenuInner li a{
+    color: rgb(255, 255, 255);
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 14pt;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.sidebarMenuInner{
+    width:100%;
+    height:auto;
+    margin:0;
+    padding:0;
+}
+
+input[type="checkbox"]:checked ~ #sidebarMenu {
+    transform: translateY(0);
+}
+
+input[type=checkbox] {
+    transition: all 0.3s;
+    box-sizing: border-box;
+    display: none;
+}
+.sidebarIconToggle {
+    transition: all 0.3s;
+    box-sizing: border-box;
+    cursor: pointer;
+    position: absolute;
+    z-index: 99;
+    height: 100%;
+    width: 100%;
+    top: 18px;
+    right:18px;
+    height: 22px;
+    width: 22px;
+    position:fixed;
+}
+.spinner {
+    transition: all 0.3s;
+    box-sizing: border-box;
+    position: absolute;
+    height: 3px;
+    width: 100%;
+    background-color:#000000;
+}
+.horizontal {
+    transition: all 0.3s;
+    box-sizing: border-box;
+    position: relative;
+    float: left;
+    margin-top: 3px;
+}
+.diagonal.part-1 {
+    position: relative;
+    transition: all 0.3s;
+    box-sizing: border-box;
+    float: left;
+}
+.diagonal.part-2 {
+    transition: all 0.3s;
+    box-sizing: border-box;
+    position: relative;
+    float: left;
+    margin-top: 3px;
+}
+input[type=checkbox]:checked ~ .sidebarIconToggle > .horizontal {
+    transition: all 0.3s;
+    box-sizing: border-box;
+    opacity: 0;
+}
+input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-1 {
+    transition: all 0.3s;
+    box-sizing: border-box;
+    transform: rotate(135deg);
+    margin-top: 8px;
+}
+input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
+    transition: all 0.3s;
+    box-sizing: border-box;
+    transform: rotate(-135deg);
+    margin-top: -9px;
+}
+
+.sidebarMenuInner{
+    margin-top:60px;
+    }
+/*↓暗くなる要素*/
+.black-bg {
+    display: block;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 10;
+    background-color: rgba(255, 255, 255, 0.74);
+    opacity: 0;
+    visibility: hidden;/* 非表示にしておきます */
+    -webkit-transition: all .6s;
+    transition: all .6s;
+    cursor: pointer;
+}
+
+input[type="checkbox"]:checked ~ .black-bg {
+    opacity: .8;
+    visibility: visible;
+}
+
+
+/* ------------scroll------------------ */
+
+a {
+    padding-top: 70px;
+    display: inline;
+    
+  }
+  a span {
+    display: inline-block;
+    position: absolute;
+    top:80%;
+    left: 50%;
+    width: 24px;
+    height: 24px;
+    margin-left: -12px;
+    border-left: 1px solid rgb(29, 29, 29);
+    border-bottom: 1px solid rgb(49, 49, 49);
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    -webkit-animation: sdb 1.5s infinite;
+    animation: sdb 1.5s infinite;
+    box-sizing: border-box;
+    z-index: 15;
+  }
+  @-webkit-keyframes sdb {
+    0% {
+      -webkit-transform: rotate(-45deg) translate(0, 0);
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      -webkit-transform: rotate(-45deg) translate(-20px, 20px);
+      opacity: 0;
+    }
+  }
+  @keyframes sdb {
+    0% {
+      transform: rotate(-45deg) translate(0, 0);
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      transform: rotate(-45deg) translate(-20px, 20px);
+      opacity: 0;
+    }
+  }
+
+
+
+/* --------共通--------------------------- */
+
+h2{    font-size: 29px;
+        text-align: center;
+        color: #1a1311;
+        letter-spacing: 0.363em;
+	    line-height: 1.7586206896551724;
+        border-spacing: 5px;
+        border-bottom: solid;
+        border-radius: 3px;
+        margin-top:222px;
+        margin-bottom: 59px;
+        margin-right: 0px;
+        margin-left: 0px;
+        top:22pxpx;
+        display: inline-block;
+    
+}
+
+h3{     font-size: 21px;
+        text-align: center;
+        color: #707070;
+        letter-spacing: 0em;
+        line-height: 1.7619047619047619;
+    }
+
+p{      font-size: 14px;
+        text-align: center;
+        color: #707070;
+        letter-spacing: 0.05em;
+    }
+
+ /* -------about-------------    */
+    
+    #about img{
+        width: 148px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }    
+    #about p{
+        margin-left: 29px;
+        margin-right: 29px;
+        text-align: left;
+    }      
+
+
+    /* --------work----------- */
+       
+
+    .parent { 
+        display: grid; 
+        grid-template-columns: repeat(3, 1fr); 
+        grid-template-rows: repeat(6, 1fr); 
+        grid-column-gap: 12px;
+        grid-row-gap: 12px; 
+        width: 330px;
+        object-fit: cover;
+        margin: 0px auto;
+        }
+        
+    .parent img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }    
+        .div1 { grid-area: 1 / 1 / 2 / 3; } 
+        .div2 { grid-area: 1 / 3 / 2 / 4; } 
+        .div3 { grid-area: 2 / 1 / 3 / 2; } 
+        .div4 { grid-area: 2 / 2 / 3 / 3; } 
+        .div5 { grid-area: 2 / 3 / 3 / 4; } 
+        .div6 { grid-area: 3 / 1 / 5 / 2; } 
+        .div7 { grid-area: 3 / 2 / 4 / 4; } 
+        .div8 { grid-area: 4 / 2 / 5 / 3; } 
+        .div9 { grid-area: 4 / 3 / 5 / 4; } 
+        .div10 { grid-area: 5 / 1 / 6 / 2; } 
+        .div11 { grid-area: 5 / 2 / 6 / 3; } 
+        .div12 { grid-area: 5 / 3 / 6 / 4; } 
+        .div13 { grid-area: 6 / 1 / 7 / 2; } 
+        .div14 { grid-area: 6 / 2 / 7 / 3; } 
+        .div15 { grid-area: 6 / 3 / 7 / 4; } 
+
+        .scale-img {
+             width: 100%;
+             height: 100%;
+             object-fit: cover;
+             transition-duration: 0.2s; /*変化の時間*/
+            }
+            .scale-img:hover {
+             transform: scale(1.1,1.1); 
+             cursor: pointer; 
+            }
+
+            #lightbox .lb-container { padding: 0px; }
+
+    /* -------news -----*/
+    
+    #news{
+        position: center;
+        
+    }
+
+    p #news {
+        margin-bottom: 50px;
+    }
+
+     ul{
+        list-style: none;
+        margin: 0px;
+        padding: 0px;
+    }
+    
+    li{ 
+        font-size: 10px;
+        margin-bottom: 70px;
+        
+    }
+    .horizontal-list {
+        overflow-x: auto;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+        
+      }
+  
+      .item {
+        /* 横スクロール用 */
+        display: inline-block;
+        margin: 40px;
+        margin-bottom: 0px;
+        
+      }
+
+      ul img{
+        /* clip-path: circle(40% at 50% 50%); */
+        z-index: -110;
+      }
+
+
+      
+    
+    /* --------contact------- */
+    #contact p{
+        padding-top: 20px;
+    }
+    #contact h3{
+        margin-top: 40px;
+        margin-bottom: 40px;
+    }
+
+
+    #icon{
+        float:unset;
+        margin-top: 80px;
+    }
+    #icon img{
+        margin: 24px;
+    }
+
+    footer{
+        margin-bottom: 60px;
+        margin-top: 130px;
+    }
+
+
+
+
+ /* ーーーーータブレット表示ーーーーーーーー */
+
+    @media(min-width:600px){
+        .parent { 
+            grid-column-gap: 12px;
+            grid-row-gap: 12px; 
+            width: 530px;
+            }
+
+        #about p{
+            display: inline-block;
+            width: 500px;
+        }
+    
+        .item {
+        /* 横スクロール用 */
+        width: 300px;
+        display: inline-block;
+        margin-left: 200px;
+        }
+
+        .container {
+            overflow: auto;
+            scroll-snap-type: x;
+            display: flex;
+          }
+          .area {
+            width: 100vw;
+            flex: none;
+          }
+
+
+/* ーーーーーーーーmediaータイトルーーーーーーーーーー */
+
+
+        @media only screen and (max-width:480px) { 
+            /*　for iPhone Landscape　(iPhone 横)　*/
+            .pc,.ipad{display: none !important;}
+            .mobil{display: block !important;}
+    }
+
+         
+        }
+        
+        @media screen and (min-width:600px) and ( max-width:1024px) {
+            .pc,.mobil{display: none !important;}
+            .ipad{display: block !important;}
+
+            header img{
+                width: 200px;
+            }
+
+            .sidebarIconToggle {
+                width: 44px;
+                height: 44px;
+            }
+
+            
+            header video{
+                        opacity: var(--video-opcity);
+                        width: 100%;
+                        height: auto;
+                        margin-top: 0px;
+                        z-index: -1;
+                        background-color: rgba(211, 211, 211, 0.062);
+            }/*　for iPad 　*/
+            
+            #about{
+                margin-top: 600px;
+                z-index: 60;
+            }
+
+            a span {
+                margin: 400px 0px 0px 0px;
+                display: inline;
+            }
+                        
+           
+        }
